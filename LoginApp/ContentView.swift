@@ -29,7 +29,7 @@ struct Home: View {
     var body: some View{
         GeometryReader{_ in
             
-            VStack{
+            VStack(){
                 Image("logo")
                     .resizable()
                     .frame(width: 60, height: 60)
@@ -45,6 +45,7 @@ struct Home: View {
                     }
                     .padding(.top, 40)
                     
+                    // EMAIL
                     VStack{
                         HStack(spacing:15){
                             Image(systemName: "envelope.fill")
@@ -55,6 +56,22 @@ struct Home: View {
                         
                         Divider().background(Color.white.opacity(0.5))
                     }
+                    .padding(.horizontal)
+                    .padding(.top, 40)
+                    
+                    // PASSWORD
+                    VStack{
+                        HStack(spacing:15){
+                            Image(systemName: "eye.slash.fill")
+                                .foregroundColor(Color("PrimaryColor"))
+                            
+                            SecureField("Password", text:self.$email)
+                        }
+                        
+                        Divider().background(Color.white.opacity(0.5))
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 20)
                 }
                 .padding()
                 .background(Color("SecondaryColor"))
